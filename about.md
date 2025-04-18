@@ -1,10 +1,6 @@
 ---
 title: "About"
-layout: page-sidebar
-permalink: "/about.html"
-description: An introduction to Using Primavera and the person behind the site along with links to some old posts written for Ten Six Consulting.
-image: "assets/images/barrie_callender_400x400.jpg"
-comments: false
+layout: about
 ---
 *Using Primavera* is a blog dedicated to helping Oracle Primavera P6 and Oracle Primavera Unifier users get the best out of these products through producing reports using Oracle BI Publisher.  I started using the predecessor of P6, Primavera P3e, in 2001, and have recently worked on the largest Oracle Primavera P6 and Unifier deployment in the world.  The capability available through BI Publisher has been impressive, and I believe is underused in the Primavera world.
 
