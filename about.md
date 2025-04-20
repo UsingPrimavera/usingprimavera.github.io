@@ -4,6 +4,7 @@ layout: about
 last_modified_date: 2025-04-20T07:37:00+01:00
 nav_exclude: true
 ---
+# {{page.title}}
 *Using Primavera* is a blog dedicated to helping Oracle Primavera P6 and Oracle Primavera Unifier users get the best out of these products through producing reports using Oracle BI Publisher.  I started using the predecessor of P6, Primavera P3e, in 2001, and have recently worked on the largest Oracle Primavera P6 and Unifier deployment in the world.  The capability available through BI Publisher has been impressive, and I believe is underused in the Primavera world.
 
 My aim is to provide you with all the practical information needed to get the most out of using Oracle BI Publisher with P6 and Unifier.  However, it will be more than just reports.

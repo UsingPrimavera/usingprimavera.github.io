@@ -8,6 +8,7 @@ categories:
 image: assets/images/postman_running_bip_report.png
 permalink: /run-oracle-bi-publisher-reports-using-rest/
 ---
+# {{page.title}}
 Recently we needed to run a series of Oracle BI Publisher reports to extract data from Oracle Primavera P6 and Oracle Primavera Unifier, and store it in another system.
 
 We found the official [REST API for Oracle Business Intelligence Publisher](https://docs.oracle.com/middleware/bi12214/bip/BIPAP/index.html) to be incomplete in this respect.  We managed to hunt down the missing information, and decided to write a post showing what we did in an effort to help others who may be stuck in the same way we were.
