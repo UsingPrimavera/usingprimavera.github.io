@@ -6,6 +6,7 @@ description: How to use REST to run Oracle BI Publisher reports, which can be us
 author: barrie
 categories:
 image: assets/images/postman_running_bip_report.png
+permalink: /run-oracle-bi-publisher-reports-using-rest/
 ---
 Recently we needed to run a series of Oracle BI Publisher reports to extract data from Oracle Primavera P6 and Oracle Primavera Unifier, and store it in another system.
 
