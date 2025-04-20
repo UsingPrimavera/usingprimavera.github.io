@@ -1,7 +1,7 @@
 ---
-layout: post
 title: "Run Oracle BI Publisher reports using REST"
-date: 2022-04-04T20:44:32+01:00
+layout: post
+last_modified_date: 2022-04-04T20:44:32+01:00
 description: How to use REST to run Oracle BI Publisher reports, which can be useful for extracting data from your application, such as Oracle Primavera in our case.
 author: barrie
 categories:
