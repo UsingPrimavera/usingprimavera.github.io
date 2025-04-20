@@ -1,7 +1,8 @@
 ---
 title: "Privacy Policy"
 layout: default
-last_modified_date: 2025-04-20T07:37:00+01:00
+last_modified_date: 2025-04-20T07:37:01+01:00
+nav_exclude: true
 ---
 
 **{{site.title}}** takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used.
