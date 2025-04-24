@@ -88,3 +88,18 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
 
+# Define Jekyll collections
+collections:
+  # collection "references" reside in the "_references" directory
+  references:
+    permalink: "/:collection/:path/"
+    output: true
+
+just_the_docs:
+  # Define which collections are used in just-the-docs
+  collections:
+    # Reference the "references" collection
+    references:
+      # give the collection a name
+      name: References
+
