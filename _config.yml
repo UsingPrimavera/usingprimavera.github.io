@@ -92,7 +92,7 @@ color_scheme: dark
 collections:
   # collection "tutorials" reside in the "_tutorials" directory
   tutorials:
-    permalink "/:collection/:path/"
+    permalink: "/:collection/:path/"
     output: true
   how-to-guides:
     permalink: "/:collection/:path/"
