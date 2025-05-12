@@ -90,8 +90,8 @@ color_scheme: dark
 
 # Define Jekyll collections
 collections:
-  # collection "references" reside in the "_references" directory
-  references:
+  # collection "reference" reside in the "_reference" directory
+  reference:
     permalink: "/:collection/:path/"
     output: true
 
@@ -99,7 +99,7 @@ just_the_docs:
   # Define which collections are used in just-the-docs
   collections:
     # Reference the "references" collection
-    references:
+    reference:
       # give the collection a name
-      name: References
+      name: Reference
 
