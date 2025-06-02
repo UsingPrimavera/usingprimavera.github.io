@@ -97,10 +97,10 @@ collections:
   how-to-guides:
     permalink: "/:collection/:path/"
     output: true
-  explanation:
-    permalink: "/:explanation/:path/"
+  explanations:
+    permalink: "/:collection/:path/"
     output: true
-  reference:
+  references:
     permalink: "/:collection/:path/"
     output: true
 
@@ -111,7 +111,7 @@ just_the_docs:
       name: Tutorials
     how-to-guides:
       name: How-To Guides
-    explanation:
+    explanations:
       name: Explanation
-    reference:
+    references:
       name: Reference
