@@ -23,11 +23,15 @@ todo: |
 ---
 ## Overview
 
-In this tutorial, you'll learn how to {insert brief description of the main tutorial task}. This tutorial is intended for {audience}. It assumes you have basic knowledge of:
+In this tutorial, you'll learn how to use the REST API for Oracle Analytics Publisher to run reports and retrieve data in XML format. This tutorial is intended for users who want to use the data in other applications.
 
-* Concept 1
-* Concept 2
-* Concept 3...
+We use [curl](https://curl.se/) throughout the tutorial because it supports learning by providing a raw view of the data passing to and from Oracle Analytics Server Publisher. `curl` is available in Windows 10, Windows 11 and Linux.
+
+We do not expect `curl` will be used in production systems. We do hope it will help with understanding the REST capability available in your language of choice. Some of the programming languages our clients have used include [python](https://www.python.org/), [C#](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/), [Power Query M formula language](https://learn.microsoft.com/en-us/powerquery-m/) and others.
+
+* [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP) - The HyperText Transfer Protocol.
+* [REST](https://developer.mozilla.org/en-US/docs/Glossary/REST) - Representational State Transfer.
+* [XML](https://developer.mozilla.org/en-US/docs/Glossary/XML) - eXtensible Markup Language.
 
 By the end of this tutorial, you'll be able to:
 
