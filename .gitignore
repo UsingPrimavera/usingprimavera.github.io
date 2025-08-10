@@ -7,3 +7,4 @@ _deploy.yml
 node_modules
 .tool-versions
 .ruby-lsp/
+tmp/
