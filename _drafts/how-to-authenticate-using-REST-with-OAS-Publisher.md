@@ -137,32 +137,6 @@ Through the steps in this task you will learn how to authenticate with OAS Publi
     There is quite a lot of information returned here, but we don't necessarily need to know what all of it means.
 
 
-## Run a Publisher report to retrieve data
-
-## Run publisher reports with different kinds of parameters.
-
-## Retrieve content in different formats.
-
-## {Task name}
-
-To get started, {the first thing your user should do}.
-
-1. {Write the step here. Use a verb to start.}
-
-    {Explanatory text}
-
-    {Optional: Code sample or screenshot that helps your users complete this step}
-
-    {Optional: Result}
-
-2. {Write the step here. Use a verb to start.}
-
-   a. {Substep 1}
-
-   b. {Substep 1}
-
-
-
 ## Summary
 
 {Use this section to summarize what the user learned in the tutorial.}
