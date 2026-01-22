@@ -6,11 +6,11 @@ image: /assets/images/oracle_documentation_landing_page_250528.png
 ---
 ## Overview
 
-This is the first tutotial in a series of tutorials intended for software developers who want to know how to make use of REST to use OAS Publisher.
+This is the first tutorial in a series of tutorials intended for software developers who want to know how to make use of REST to use OAS Publisher.
 In this tutorial, you'll learn how to
 - authenticate with Oracle Analytics Server (OAS) Publisher using the REST API,
-- provide the location of the report you wish to run, and
-- display the XML information returned by OAS Publisher.
+- provide the location of a report, and
+- retrieve report definition data from OAS Publisher.
 
 This tutorial assumes you have:
 
@@ -18,9 +18,13 @@ This tutorial assumes you have:
 - have some familiarity with:
   - [HTTP](https://developer.mozilla.org/en-US/docs/Glossary/HTTP) - The HyperText Transfer Protocol,
   - [REST](https://developer.mozilla.org/en-US/docs/Glossary/REST) - Representational State Transfer, and
-  - [XML](https://developer.mozilla.org/en-US/docs/Glossary/XML) - eXtensible Markup Language.
+  - [JSON](https://developer.mozilla.org/en-US/docs/Glossary/JSON) - JavaScript Object Notation.
 
-By the end of this tutorial, you'll be able to understand how to make REST calls using `curl` to authenticate with OAS Publisher,
+By the end of this tutorial, you'll be able to:
+
+- create base64 encoded credentials for HTTP Basic Authentication,
+- construct the endpoint URL for OAS Publisher REST calls, and
+- use `curl` to make authenticated REST requests to OAS Publisher.
 
 ## Background
 
@@ -41,11 +45,7 @@ Before you start the tutorial, you should:
 
 All we are going to do in this short tutorial is retrieve information about an OAS Publisher report you have access to. The easiest kind of request is a `GET` request, and there are 5 to choose from the OAS Publisher [Manage Reports REST Endpoints](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/api-manage-reports.html). We'll use the [Get report definition](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/op-v1-reports-reportpath-get.html) which requires passing your credentials along with the location of a report.
 
-We will show how to pass authentication to OAS Publisher, tell it which reportThe first step is to ensure you can authenticate with OAS, and know how to tell OAS which report you want to run. To get started, you must be able to authenticate with OAS Publisher, and make a REST call to fetch data.
-
-
-
-Through the steps in this task you will learn how to authenticate with OAS Publisher, and construct the Endpoint URL to retrieve the definition of a report. We'll put commands in a `bash` script and build it up as we go along.
+Through the steps in this task you will learn how to authenticate with OAS Publisher, and construct the endpoint URL to retrieve the definition of a report. We'll put commands in a `bash` script and build it up as we go along.
 
 1. Create base64 encoded credentials.
 
@@ -64,13 +64,13 @@ Through the steps in this task you will learn how to authenticate with OAS Publi
     echo "Authorization: Basic $BIP_CREDENTIALS"
     ```
 
-    Run the file such as by entering `/.oasREST`, and it will output the authentication string.
+    Run the file such as by entering `./oasREST`, and it will output the authentication string.
 
     The second line pipes your credentials into `base64` to encode them, and the result is assigned to BIP_CREDENTIALS variable to be used later.
 
     The last line echoes the authorization string to the screen so you can see it.
 
-2. Create the URL we wil send as the endpoint to OAS Publisher.
+2. Create the URL we will send as the endpoint to OAS Publisher.
 
     The URL we need to send to OAS Publisher needs to looks like `https://example.com:9502/xmlpserver/services/rest/v1/reports/{reportPath}`, which all looks fairly simple apart from the final `{reportPath}`. Let's work our way up to it. Every one of the 14 REST endpoints for managing reports, except one, begins like this.  The exception is the Create report endpoint.
 
@@ -117,46 +117,57 @@ Through the steps in this task you will learn how to authenticate with OAS Publi
       --request GET "$BIP_HOSTNAME/xmlpserver/services/rest/v1/reports/$BIP_ENC_REPORT_PATH"
     ```
 
+    This is the response I received where the first line, `HTTP/1.1 200 OK`, tells me the request was successful:
 
-    # This is the response I received where the first line, "HTTP/1.1 200 OK" tells me it was successful.
-    #
+    ```
     HTTP/1.1 200 OK
     Cache-Control: no-store
     Date: Thu, 17 Jul 2025 19:29:15 GMT
     Pragma: no-cache
     Content-Length: 1221
     Content-Type: application/json
-    Content-Security-Policy: default-src 'self' ; script-src 'self' 'unsafe-inline' 'unsafe-eval' ; style-src 'self' 'unsafe-inline' ; style-src-elem 'self'  'unsafe-inline'; img-src 'self'  data:; frame-src 'self'  data:; media-src 'none'; form-action 'self' ; object-src 'none' ; frame-ancestors 'self'                                                   │
     X-ORACLE-DMS-RID: 0
     X-ORACLE-DMS-ECID: ffe4a7df-2b78-48a5-8f32-187f1554371f-00000fa7
     X-FRAME-OPTIONS: SAMEORIGIN
 
-    {"ESSPackageName":"","ESSJobName":"","autoRun":"true","cacheDocument":"true","controledByExtApp":"false","dataModelURL":"/Reports for Tutorials/REST/Datamodels/Simple RestTutorial.xdm","defaultOutputFormat":"analyze","defaultTemplateId":"Data","diagnostics":"false","listOfTemplateFormatsLabelValues":{"item":[{"active":"true","applyStyleTemplate":"true","default":"false","listOfTemplateFormatLabelValue":{"item":[{"templateFormatLabel":"Interactive","templateFormatValue":"analyze"},{"templateFormatLabel":"HTML","templateFormatValue":"html"},{"templateFormatLabel":"PDF","templateFormatValue":"pdf"},{"templateFormatLabel":"RTF","templateFormatValue":"rtf"},{"templateFormatLabel":"Excel (*.xlsx)","templateFormatValue":"xlsx"},{"templateFormatLabel":"PowerPoint (*.pptx)","templateFormatValue":"pptx"}]},"templateAvailableLocales":{"item":["en_US"]},"templateBaseLocale":null,"templateDefaultLocale":"en_US","templateID":"Data","templateType":"xpt","templateURL":"Data.xpt","viewOnline":"true"}]},"onLine":"true","openLinkInNewWindow":"true","parameterColumns":3,"reportDefnTitle":"","reportName":"Simple REST Tutorial","reportType":null,"showControls":"true","showReportLinks":"true","templateIds":{"item":["Data"]}}
+    {"ESSPackageName":"","ESSJobName":"","autoRun":"true","cacheDocument":"true",
+    "controledByExtApp":"false","dataModelURL":"/Reports for Tutorials/REST/Datamodels/Simple RestTutorial.xdm",
+    "defaultOutputFormat":"analyze","defaultTemplateId":"Data","diagnostics":"false",
+    "listOfTemplateFormatsLabelValues":{"item":[{"active":"true","applyStyleTemplate":"true",
+    "default":"false","listOfTemplateFormatLabelValue":{"item":[
+    {"templateFormatLabel":"Interactive","templateFormatValue":"analyze"},
+    {"templateFormatLabel":"HTML","templateFormatValue":"html"},
+    {"templateFormatLabel":"PDF","templateFormatValue":"pdf"},
+    {"templateFormatLabel":"RTF","templateFormatValue":"rtf"},
+    {"templateFormatLabel":"Excel (*.xlsx)","templateFormatValue":"xlsx"},
+    {"templateFormatLabel":"PowerPoint (*.pptx)","templateFormatValue":"pptx"}]},
+    "templateAvailableLocales":{"item":["en_US"]},"templateBaseLocale":null,
+    "templateDefaultLocale":"en_US","templateID":"Data","templateType":"xpt",
+    "templateURL":"Data.xpt","viewOnline":"true"}]},"onLine":"true",
+    "openLinkInNewWindow":"true","parameterColumns":3,"reportDefnTitle":"",
+    "reportName":"Simple REST Tutorial","reportType":null,"showControls":"true",
+    "showReportLinks":"true","templateIds":{"item":["Data"]}}
     ```
 
-    There is quite a lot of information returned here, but we don't necessarily need to know what all of it means.
+    The response contains the report definition in JSON format. There is quite a lot of information returned here, but we don't necessarily need to know what all of it means. The key point is that we successfully authenticated and retrieved data from OAS Publisher.
 
 
 ## Summary
 
-{Use this section to summarize what the user learned in the tutorial.}
-
 In this tutorial, you learned how to:
 
-* Summary point 1
-* Summary point 2
-* Summary point 3..
+- create base64 encoded credentials using the `username:password` format required by HTTP Basic Authentication,
+- construct the endpoint URL for OAS Publisher REST calls, including URL-encoding the report path using `jq`, and
+- use `curl` to make an authenticated REST request to the OAS Publisher API and retrieve report definition data.
+
+These skills form the foundation for all the REST calls you will make to OAS Publisher in the tutorials that follow.
 
 ## Next steps
 
-{Use this section to share links to related tutorials, videos, or other documentation}.
+Now that you can authenticate with OAS Publisher, you're ready to start running reports:
 
-Consider completing some other common tasks using {feature}:
+- **Run a report without parameters** - Learn how to execute a simple report and retrieve its output in XML format.
+- **Extract XML data from report output** - Learn how to process and extract the data returned by OAS Publisher.
+- **Run reports with parameters** - Learn how to pass text, number, date, and list parameters to reports.
 
-* Task 1
-* Task 2
-* Task 3...
-
-## Notes to be deleted
-
-
+You may also find the [OAS Publisher REST API documentation](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/index.html) useful as a reference.
