@@ -6,7 +6,8 @@ image: /assets/images/oracle_documentation_landing_page_250528.png
 ---
 ## Overview
 
-This is the first tutorial in a series of tutorials intended for software developers who want to know how to make use of REST to use OAS Publisher.
+This is the first tutorial in a series of tutorials intended for software developers who want to know how to make use of REST with OAS Publisher.
+
 In this tutorial, you'll learn how to
 - authenticate with Oracle Analytics Server (OAS) Publisher using the REST API,
 - provide the location of a report, and
@@ -28,9 +29,9 @@ By the end of this tutorial, you'll be able to:
 
 ## Background
 
-All the REST calls made to OAS Publisher require authentication, so this short tutorial is essential for using REST with OAS Publisher, and it also ensures you have the tools installed for all the tutorials in this series.
+All the REST calls made to OAS Publisher require authentication, so this short tutorial is essential for using REST with OAS Publisher, and it also ensures you have the tools installed for the rest of the tutorials in this series.
 
-We use `curl` and `jq` throughout these tutorials, because they allow us to see the detail, which may be abstracted away when you use the libraries in your chosen language. However we hope it will provide insight into the detail.  Feel free to implement these tutorials in your language of choice once each is completed.
+We use `curl` and `jq` throughout these tutorials, because they allow us to see the detail, which may be abstracted away into libraries when using your programming language of choice.
 
 ## Before you start
 
@@ -38,18 +39,18 @@ Before you start the tutorial, you should:
 
 - be able to login to an instance of OAS Publisher and create Data Models and Reports,
 - have access to the command line,
-- have installed [curl](https://curl.se/) on your client machine, and
-- have installed [jq](https://jqlang.org/) on your client machine.
+- install [curl](https://curl.se/) on your client machine, and
+- install [jq](https://jqlang.org/) on your client machine.
 
 ## Get information about a Publisher report
 
-All we are going to do in this short tutorial is retrieve information about an OAS Publisher report you have access to. The easiest kind of request is a `GET` request, and there are 5 to choose from the OAS Publisher [Manage Reports REST Endpoints](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/api-manage-reports.html). We'll use the [Get report definition](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/op-v1-reports-reportpath-get.html) which requires passing your credentials along with the location of a report.
+This short tutorial will retrieve information about an OAS Publisher report you have access to, using a simkple `GET` request. There are 5 to choose from the OAS Publisher [Manage Reports REST Endpoints](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/api-manage-reports.html). We'll use the [Get report definition](https://docs.oracle.com/en/middleware/bi/analytics-server/oap_rest_api/op-v1-reports-reportpath-get.html) which requires passing your credentials along with the location of a report.
 
 Through the steps in this task you will learn how to authenticate with OAS Publisher, and construct the endpoint URL to retrieve the definition of a report. We'll put commands in a `bash` script and build it up as we go along.
 
 1. Create base64 encoded credentials.
 
-    The Hypertext Transfer Protocol (HTTP) used by REST is in plain text, which allows us to see as much detail as we want. This first step creates the Authorisation header used to pass your credentials to OAS. The string you generate will look something like this:
+    The Hypertext Transfer Protocol (HTTP) used by REST is in plain text, allowing us to see as much detail as we want. This first step creates the Authorisation header used to pass your credentials to OAS. It generates a string that looks something like this:
 
     `Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=`
 
@@ -72,7 +73,7 @@ Through the steps in this task you will learn how to authenticate with OAS Publi
 
 2. Create the URL we will send as the endpoint to OAS Publisher.
 
-    The URL we need to send to OAS Publisher needs to looks like `https://example.com:9502/xmlpserver/services/rest/v1/reports/{reportPath}`, which all looks fairly simple apart from the final `{reportPath}`. Let's work our way up to it. Every one of the 14 REST endpoints for managing reports, except one, begins like this.  The exception is the Create report endpoint.
+    The URL we need to send to OAS Publisher needs to looks like `https://example.com:9502/xmlpserver/services/rest/v1/reports/{reportPath}`, which all looks fairly simple apart from the final `{reportPath}`. Let's work our way through this. Every one of the 14 REST endpoints for managing reports, except one, begins like this.  The exception is the Create report endpoint.
 
     The beginning of the URL up to the end of the port is put into the `BIP_HOSTNAME` variable, although strictly speaking it is the Scheme, Hostname and optional port. This will make it easier to switch to another server.
 
