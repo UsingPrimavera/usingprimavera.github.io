@@ -1,0 +1,51 @@
+{% comment %}
+  learning-path-nav.html
+  Checks if the current page is a step in any learning path.
+  If found, renders a banner with the path name, step progress, and prev/next links.
+  Include this in any layout that should show learning path navigation.
+{% endcomment %}
+
+{% assign lp_found = false %}
+{% assign lp_current = nil %}
+{% assign lp_step_index = nil %}
+
+{% for lp in site.data.learning_paths.learning_paths %}
+  {% unless lp_found %}
+    {% for step in lp.steps %}
+      {% if step.url == page.url %}
+        {% assign lp_current = lp %}
+        {% assign lp_step_index = forloop.index0 %}
+        {% assign lp_found = true %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endunless %}
+{% endfor %}
+
+{% if lp_found %}
+{% assign lp_step_number = lp_step_index | plus: 1 %}
+{% assign lp_total = lp_current.steps | size %}
+{% assign lp_prev_index = lp_step_index | minus: 1 %}
+{% assign lp_next_index = lp_step_index | plus: 1 %}
+<div class="learning-path-nav">
+  <div class="learning-path-header">
+    <span class="learning-path-label">Learning path</span>
+    <a href="{{ "/learning-paths/" | relative_url }}#{{ lp_current.id }}" class="learning-path-title">{{ lp_current.title }}</a>
+    <span class="learning-path-progress">Step {{ lp_step_number }} of {{ lp_total }}</span>
+  </div>
+  <div class="learning-path-steps">
+    {% if lp_step_index > 0 %}
+      {% assign lp_prev = lp_current.steps[lp_prev_index] %}
+      <a href="{{ lp_prev.url | relative_url }}" class="learning-path-prev">&larr; {{ lp_prev.title }}</a>
+    {% else %}
+      <span class="learning-path-prev learning-path-disabled">Start of path</span>
+    {% endif %}
+    {% if lp_next_index < lp_total %}
+      {% assign lp_next = lp_current.steps[lp_next_index] %}
+      <a href="{{ lp_next.url | relative_url }}" class="learning-path-next">{{ lp_next.title }} &rarr;</a>
+    {% else %}
+      <span class="learning-path-next learning-path-disabled">End of path</span>
+    {% endif %}
+  </div>
+</div>
+{% endif %}

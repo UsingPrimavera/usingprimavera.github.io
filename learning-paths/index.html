@@ -1,0 +1,32 @@
+---
+layout: default
+title: Learning Paths
+permalink: /learning-paths/
+nav_exclude: true
+description: "Curated journeys through Oracle Primavera and Oracle Analytics Server documentation."
+---
+
+<h1>Learning Paths</h1>
+<p>Learning paths connect tutorials, how-to guides, explanations, and blog posts into coherent journeys. Each path takes you from first principles to practical application.</p>
+
+{% assign paths = site.data.learning_paths.learning_paths %}
+{% if paths.size > 0 %}
+  {% for lp in paths %}
+  <div class="learning-path-card" id="{{ lp.id }}">
+    <h2>{{ lp.title }}</h2>
+    <p>{{ lp.description }}</p>
+    <ol class="learning-path-step-list">
+      {% for step in lp.steps %}
+      <li>
+        <a href="{{ step.url | relative_url }}">{{ step.title }}</a>
+        <span class="learning-path-step-type">{{ step.type }}</span>
+        {% if step.description %}<p class="learning-path-step-desc">{{ step.description }}</p>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    <a href="{{ lp.steps[0].url | relative_url }}" class="learning-path-start">Start this path &rarr;</a>
+  </div>
+  {% endfor %}
+{% else %}
+<p>No learning paths defined yet.</p>
+{% endif %}

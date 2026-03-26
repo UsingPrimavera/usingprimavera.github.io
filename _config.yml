@@ -153,28 +153,28 @@ defaults:
       path: ""
       type: "tutorials"
     values:
-      layout: "default"
+      layout: "doc"
       diataxis_type: "tutorial"
       nav_exclude: false
   - scope:
       path: ""
       type: "how-to-guides"
     values:
-      layout: "default"
+      layout: "doc"
       diataxis_type: "how-to"
       nav_exclude: false
   - scope:
       path: ""
       type: "explanations"
     values:
-      layout: "default"
+      layout: "doc"
       diataxis_type: "explanation"
       nav_exclude: false
   - scope:
       path: ""
       type: "references"
     values:
-      layout: "default"
+      layout: "doc"
       diataxis_type: "reference"
       nav_exclude: false
   # Blog posts

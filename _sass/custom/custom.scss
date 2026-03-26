@@ -1,4 +1,4 @@
-// custom.scss — Blog area styles for usingprimavera.com
+// custom.scss — Blog area and cross-cutting styles for usingprimavera.com
 // Just the Docs automatically imports this file.
 // Styles here layer on top of the Just the Docs dark theme.
 
@@ -119,6 +119,150 @@
       flex-wrap: wrap;
       gap: 0.25rem;
     }
+  }
+}
+
+// ─── Post tags label ─────────────────────────────────────────────────────────
+
+.post-tags-label {
+  font-size: 0.75rem;
+  color: $grey-dk-100;
+  margin-right: 0.25rem;
+}
+
+// ─── Learning path navigation ─────────────────────────────────────────────────
+
+.learning-path-nav {
+  background-color: $sidebar-color;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+
+  .learning-path-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .learning-path-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $grey-dk-100;
+    white-space: nowrap;
+  }
+
+  .learning-path-title {
+    font-weight: 600;
+    color: $link-color;
+    text-decoration: none;
+    flex: 1;
+
+    &:hover { text-decoration: underline; }
+  }
+
+  .learning-path-progress {
+    font-size: 0.75rem;
+    color: $grey-dk-100;
+    white-space: nowrap;
+  }
+
+  .learning-path-steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    a {
+      color: $link-color;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+
+    .learning-path-disabled {
+      color: $grey-dk-100;
+      font-style: italic;
+    }
+  }
+}
+
+// ─── Learning paths index page ───────────────────────────────────────────────
+
+.learning-path-card {
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+
+  h2 { margin-top: 0; }
+}
+
+.learning-path-step-list {
+  li { margin-bottom: 0.5rem; }
+
+  .learning-path-step-type {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: $grey-dk-100;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    padding: 0.1em 0.4em;
+    margin-left: 0.4em;
+    vertical-align: middle;
+  }
+
+  .learning-path-step-desc {
+    font-size: 0.875rem;
+    color: $grey-dk-100;
+    margin: 0.2rem 0 0;
+  }
+}
+
+.learning-path-start {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: $link-color;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+// ─── Related posts ────────────────────────────────────────────────────────────
+
+.related-posts {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $border-color;
+
+  h3 { margin-top: 0; font-size: 1rem; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+
+  .post-meta {
+    font-size: 0.8rem;
+    color: $grey-dk-100;
+    white-space: nowrap;
   }
 }
 

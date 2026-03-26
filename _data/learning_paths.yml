@@ -1,4 +1,26 @@
 # Learning paths connect content across Diataxis quadrants into coherent journeys.
-# Each path references content by its URL slug.
-# Populated in Phase 5.
-learning_paths: []
+# Each step references a page by its exact URL (include trailing slash).
+# Add new paths here — they appear automatically on /learning-paths/ and as
+# prev/next navigation on each step page.
+
+learning_paths:
+  - id: oas-rest-api-intro
+    title: "Getting Started with the Oracle Analytics Server REST API"
+    description: >-
+      A guided introduction to using the OAS Publisher REST API — from finding
+      the right documentation, to authenticating, to running your first report
+      programmatically.
+    product: oas
+    steps:
+      - title: "Oracle Documentation"
+        url: /references/oracle-documentation/
+        type: reference
+        description: "Know where to find the official Oracle documentation before you begin."
+      - title: "How to authenticate using REST with OAS Publisher"
+        url: /how-to-guides/how-to-authenticate-using-REST-with-OAS-Publisher/
+        type: how-to
+        description: "Authenticate with the OAS Publisher REST API using basic auth and session tokens."
+      - title: "Run Oracle BI Publisher reports using REST"
+        url: /run-oracle-bi-publisher-reports-using-rest/
+        type: post
+        description: "Apply what you have learned — run BI Publisher reports programmatically via REST."
