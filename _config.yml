@@ -59,8 +59,9 @@ mermaid:
   version: "11.9.0"
 
 aux_links:
-  Oracle Primavera documentation: https://docs.oracle.com/en/industries/construction-engineering/index.html
-  Oracle Analytics Server documenttaion: https://docs.oracle.com/en/middleware/bi/analytics-server/index.html
+  Blog: /blog/
+  Oracle Primavera docs: https://docs.oracle.com/en/industries/construction-engineering/index.html
+  Oracle Analytics Server docs: https://docs.oracle.com/en/middleware/bi/analytics-server/index.html
 
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: false

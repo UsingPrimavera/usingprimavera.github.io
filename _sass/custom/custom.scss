@@ -1,0 +1,143 @@
+// custom.scss — Blog area styles for usingprimavera.com
+// Just the Docs automatically imports this file.
+// Styles here layer on top of the Just the Docs dark theme.
+
+// ─── Blog index page ────────────────────────────────────────────────────────
+
+.blog-index {
+  max-width: 800px;
+
+  h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .blog-description {
+    color: $grey-dk-100;
+    margin-bottom: 2rem;
+  }
+}
+
+// ─── Post preview cards (blog listing) ──────────────────────────────────────
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post-preview {
+  border-top: 1px solid $border-color;
+  padding-top: 1.5rem;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-size: 1.25rem;
+  }
+
+  h2 a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .post-excerpt {
+    margin-top: 0.5rem;
+    color: $grey-dk-100;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ─── Post meta (date, author, categories) ───────────────────────────────────
+
+.post-meta {
+  font-size: 0.8rem;
+  color: $grey-dk-100;
+  margin-bottom: 0.25rem;
+
+  time {
+    font-style: italic;
+  }
+}
+
+// ─── Tags and categories ────────────────────────────────────────────────────
+
+.tag,
+.category {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  margin: 0 0.15em;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  background-color: $sidebar-color;
+  color: $grey-dk-100;
+  border: 1px solid $border-color;
+}
+
+// ─── Individual post page ────────────────────────────────────────────────────
+
+.post {
+  max-width: 800px;
+
+  .post-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 1rem;
+  }
+
+  .post-title {
+    margin-bottom: 0.4rem;
+  }
+
+  .post-content {
+    line-height: 1.7;
+  }
+
+  .post-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+  }
+}
+
+// ─── Pagination ──────────────────────────────────────────────────────────────
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid $border-color;
+  font-size: 0.9rem;
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
