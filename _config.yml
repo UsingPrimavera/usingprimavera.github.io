@@ -59,7 +59,6 @@ mermaid:
   version: "11.9.0"
 
 aux_links:
-  Blog: /blog/
   Oracle Primavera docs: https://docs.oracle.com/en/industries/construction-engineering/index.html
   Oracle Analytics Server docs: https://docs.oracle.com/en/middleware/bi/analytics-server/index.html
 
@@ -103,16 +102,16 @@ collections:
   # collection "tutorials" reside in the "_tutorials" directory
   tutorials:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
   how-to-guides:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
   explanations:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
   references:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
 
 just_the_docs:
   # Define which collections are used in just-the-docs
@@ -141,7 +140,7 @@ show_excerpts: true
 pagination:
   enabled: true
   per_page: 10
-  permalink: "/blog/page/:num/"
+  permalink: "/page/:num/"
   title: "Blog — page :num"
   sort_field: "date"
   sort_reverse: true
@@ -155,28 +154,28 @@ defaults:
     values:
       layout: "doc"
       diataxis_type: "tutorial"
-      nav_exclude: false
+      nav_exclude: true
   - scope:
       path: ""
       type: "how-to-guides"
     values:
       layout: "doc"
       diataxis_type: "how-to"
-      nav_exclude: false
+      nav_exclude: true
   - scope:
       path: ""
       type: "explanations"
     values:
       layout: "doc"
       diataxis_type: "explanation"
-      nav_exclude: false
+      nav_exclude: true
   - scope:
       path: ""
       type: "references"
     values:
       layout: "doc"
       diataxis_type: "reference"
-      nav_exclude: false
+      nav_exclude: true
   # Blog posts
   - scope:
       path: ""
