@@ -1,0 +1,34 @@
+---
+layout: default
+title: Tags
+permalink: /blog/tags/
+nav_exclude: true
+description: "All tags used across blog posts on Using Primavera."
+---
+
+# Tags
+
+{% assign tags_list = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+{% if tags_list.size > 0 %}
+<ul class="tag-index">
+  {% for tag in tags_list %}
+    {% assign tag_stripped = tag | strip %}
+    {% if tag_stripped != "" %}
+    <li>
+      <strong>{{ tag_stripped }}</strong>
+      <ul>
+        {% for post in site.posts %}
+          {% if post.tags contains tag_stripped %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="post-meta">{{ post.date | date: "%e %B %Y" }}</span>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+{% else %}
+<p>No tags yet.</p>
+{% endif %}
