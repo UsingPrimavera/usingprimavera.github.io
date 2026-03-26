@@ -184,6 +184,11 @@ defaults:
     values:
       layout: "post"
       author: "Barrie Callender"
+  # Default OG image for all pages without an explicit image: field
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/logo.png
 
 # jekyll-feed
 feed:
