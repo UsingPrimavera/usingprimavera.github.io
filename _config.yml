@@ -100,18 +100,19 @@ color_scheme: dark
 # Define Jekyll collections
 collections:
   # collection "tutorials" reside in the "_tutorials" directory
+  # output: false hides collections until content is ready — change to true to publish
   tutorials:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
   how-to-guides:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
   explanations:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
   references:
     permalink: "/:collection/:path/"
-    output: true
+    output: false
 
 just_the_docs:
   # Define which collections are used in just-the-docs
