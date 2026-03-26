@@ -1,7 +1,9 @@
 ---
-layout: post
 title: How to authenticate using REST with OAS Publisher
 date: 2025-10-19 22:02 +0100
+last_modified_date: 2025-10-19T22:02:00+01:00
+nav_order: 1
+product: oas
 image: /assets/images/oracle_documentation_landing_page_250528.png
 ---
 ## Overview

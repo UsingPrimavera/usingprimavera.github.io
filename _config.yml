@@ -1,8 +1,17 @@
 title: Using Primavera
-description: Slowly documenting what I have learned about using primavera P6, Gateway, Unifier and Oracle Analytics Publisher.
+tagline: Oracle Primavera P6, Unifier, and Oracle Analytics Server — by practitioners, for practitioners
+description: >-
+  Structured technical documentation and practical insights for Oracle Primavera P6,
+  Primavera Unifier, Oracle Analytics Server, and BI Publisher. Written by Barrie Callender,
+  a project management systems consultant with 30+ years of experience.
+author:
+  name: Barrie Callender
+  email: barrie@usingprimavera.com
+  linkedin: https://www.linkedin.com/in/barriecallender/
 theme: just-the-docs
 
 url: https://usingprimavera.com
+baseurl: ""
 
 # set language for site
 # default is 'en-US'
@@ -115,3 +124,83 @@ just_the_docs:
       name: Explanation
     references:
       name: Reference
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+  - jekyll-compose
+
+# Blog posts settings
+show_excerpts: true
+
+# jekyll-paginate-v2 configuration
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: "/blog/page/:num/"
+  title: "Blog — page :num"
+  sort_field: "date"
+  sort_reverse: true
+
+# Front matter defaults
+defaults:
+  # Documentation collections
+  - scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "default"
+      diataxis_type: "tutorial"
+      nav_exclude: false
+  - scope:
+      path: ""
+      type: "how-to-guides"
+    values:
+      layout: "default"
+      diataxis_type: "how-to"
+      nav_exclude: false
+  - scope:
+      path: ""
+      type: "explanations"
+    values:
+      layout: "default"
+      diataxis_type: "explanation"
+      nav_exclude: false
+  - scope:
+      path: ""
+      type: "references"
+    values:
+      layout: "default"
+      diataxis_type: "reference"
+      nav_exclude: false
+  # Blog posts
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Barrie Callender"
+
+# jekyll-feed
+feed:
+  posts_limit: 20
+  excerpt_only: true
+
+# jekyll-seo-tag (author and social)
+twitter:
+  username: usingprimavera
+  card: summary
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE.txt
+  - vendor/
+  - tmp/
+  - ".github/"
+  - "*.sh"

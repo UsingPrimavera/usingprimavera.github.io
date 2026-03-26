@@ -1,0 +1,17 @@
+subjects:
+  - id: p6
+    name: Oracle Primavera P6
+    description: Scheduling, resource management, and project control
+    icon: p6
+  - id: unifier
+    name: Oracle Primavera Unifier
+    description: Project cost management and controls
+    icon: unifier
+  - id: oas
+    name: Oracle Analytics Server
+    description: Oracle Analytics Server and BI Publisher reporting
+    icon: oas
+  - id: power-query
+    name: Power Query
+    description: Power Query applied to Primavera data
+    icon: power-query
